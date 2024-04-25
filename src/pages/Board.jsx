@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import boardApi from '../api/boardApi'
 import EmojiPicker from '../components/common/EmojiPicker'
-import Kanban from '../components/common/Kanban'
+import HeaderBoard from '../components/common/HeaderBoard'
 import { setBoards } from '../redux/features/boardSlice'
 import { setFavouriteList } from '../redux/features/favouriteSlice'
 
@@ -161,7 +161,7 @@ const Board = () => {
           <DeleteOutlinedIcon />
         </IconButton>
       </Box>
-      <Box sx={{ padding: '10px 50px' }}>
+      <Box sx={{ padding: '10px 2px' }}>
         <Box>
           {/* emoji picker */}
           <EmojiPicker icon={icon} onChange={onIconChange} />
@@ -192,8 +192,8 @@ const Board = () => {
           />
         </Box>
         <Box>
-          {/* Kanban board */}
-          <Kanban data={sections} boardId={boardId} />
+          {/* Header board */}
+          <HeaderBoard data={sections} boardId={boardId} />
         </Box>
       </Box>
     </>

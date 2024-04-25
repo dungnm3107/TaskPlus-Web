@@ -7,10 +7,11 @@ import sectionApi from '../../api/sectionApi'
 import taskApi from '../../api/taskApi'
 import TaskModal from './TaskModal'
 
+
 let timer
 const timeout = 500
 
-const Kanban = props => {
+const HeaderBoard = props => {
   const boardId = props.boardId
   const [data, setData] = useState([])
   const [selectedTask, setSelectedTask] = useState(undefined)
@@ -127,23 +128,23 @@ const Kanban = props => {
         justifyContent: 'space-between'
       }}>
         <Button onClick={createSection}>
-          Add section
+        + Add another list
         </Button>
         <Typography variant='body2' fontWeight='700'>
-          {data.length} Sections
+          {data.length} List
         </Typography>
       </Box>
-      <Divider sx={{ margin: '10px 0' }} />
+      <Divider sx={{ margin: '10px'}} />
       <DragDropContext onDragEnd={onDragEnd}>
         <Box sx={{
           display: 'flex',
           alignItems: 'flex-start',
-          width: 'calc(100vw - 400px)',
+          width: 'calc(100vw - 1% )',
           overflowX: 'auto'
         }}>
           {
             data.map(section => (
-              <div key={section.id} style={{ width: '300px' }}>
+              <div key={section.id} style={{ width: '100%' }}>
                 <Droppable key={section.id} droppableId={section.id}>
                   {(provided) => (
                     <Box
@@ -236,4 +237,4 @@ const Kanban = props => {
   )
 }
 
-export default Kanban
+export default HeaderBoard

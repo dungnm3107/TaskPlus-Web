@@ -114,8 +114,20 @@ const TaskModal = props => {
       BackdropComponent={Backdrop}
       BackdropProps={{ timeout: 500 }}
     >
-      <Fade in={task !== undefined}>
-        <Box sx={modalStyle}>
+  <Fade in={task !== undefined}>
+        <Box sx={{
+          outline: 'none',
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '90%', // responsive width
+          bgcolor: 'background.paper',
+          border: '0px solid #000',
+          boxShadow: 24,
+          p: 1,
+          height: '80%' // responsive height
+        }}>
           <Box sx={{
             display: 'flex',
             alignItems: 'center',
@@ -130,7 +142,7 @@ const TaskModal = props => {
             display: 'flex',
             height: '100%',
             flexDirection: 'column',
-            padding: '2rem 5rem 5rem'
+            padding: '2rem 1rem 1rem' // reduced padding for smaller screens
           }}>
             <TextField
               value={title}
@@ -142,7 +154,7 @@ const TaskModal = props => {
                 width: '100%',
                 '& .MuiOutlinedInput-input': { padding: 0 },
                 '& .MuiOutlinedInput-notchedOutline': { border: 'unset ' },
-                '& .MuiOutlinedInput-root': { fontSize: '2.5rem', fontWeight: '700' },
+                '& .MuiOutlinedInput-root': { fontSize: '2rem', fontWeight: '700' }, // reduced font size
                 marginBottom: '10px'
               }}
             />
@@ -154,7 +166,7 @@ const TaskModal = props => {
               ref={editorWrapperRef}
               sx={{
                 position: 'relative',
-                height: '80%',
+                height: 'calc(80% - 100px)', // responsive height with reduced padding
                 overflowX: 'hidden',
                 overflowY: 'auto'
               }}
@@ -163,8 +175,6 @@ const TaskModal = props => {
                 editor={ClassicEditor}
                 data={content}
                 onChange={updateContent}
-                onFocus={updateEditorHeight}
-                onBlur={updateEditorHeight}
               />
             </Box>
           </Box>

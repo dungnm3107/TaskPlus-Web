@@ -48,3 +48,13 @@
   top: 0 !important;
   background: #121212 !important;
 }
+
+.showSidebar {
+  display: block !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .showSidebar {
+    display: block !important;
+  }
+}

@@ -60,7 +60,7 @@ const FavouriteList = () => {
           </Typography>
         </Box>
       </ListItem>
-      <DragDropContext onDragEnd={onDragEnd}>
+      <DragDropContext  onDragEnd={onDragEnd}>
         <Droppable key={'list-board-droppable-key'} droppableId={'list-board-droppable'}>
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
